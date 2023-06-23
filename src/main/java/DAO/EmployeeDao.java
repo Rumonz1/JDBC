@@ -10,7 +10,7 @@ public interface EmployeeDao {
      Employee getByID (int id);
      List<Employee> getAll() throws SQLException;
 
-     void updateEmployee(int id, String first_name, String last_name, String gender, int age, int city_id) throws SQLException;
+     void updateEmployee(Employee employee) throws SQLException;
 
-     void deleteEmployee(int id) throws SQLException;
+     void deleteEmployee(Employee employee) throws SQLException;
 }
