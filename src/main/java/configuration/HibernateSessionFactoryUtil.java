@@ -18,7 +18,7 @@ public class HibernateSessionFactoryUtil {
             try { Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
                 configuration.addAnnotatedClass(Employee.class);
                 configuration.addAnnotatedClass(City.class);
-                StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySetting(configuration.getProperties());
+                StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
             }
                 catch (Exception e){
