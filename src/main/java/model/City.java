@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -17,6 +18,9 @@ public class City {
     private int city_id;
     @Column(name = "city_name")
     private String city_name;
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+    private List<Employee> employeeList;
+
 
     public City() {
 
@@ -25,6 +29,13 @@ public class City {
     public City(int city_id, String city_name) {
         this.city_id = city_id;
         this.city_name = city_name;
+    }
+
+    public City(String city_name) {
+        this.city_name = city_name;
+    }
+    public City(int city_id) {
+        this.city_id = city_id;
     }
 
     public int getCity_id() {

@@ -1,5 +1,8 @@
+import DAO.CityDAO;
+import DAO.CityDAOImpl;
 import DAO.EmployeeDAOImpl;
 import DAO.EmployeeDao;
+import model.City;
 import model.Employee;
 
 import java.sql.*;
@@ -9,52 +12,29 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) throws SQLException{
         EmployeeDao employeeDao = new EmployeeDAOImpl();
-        Employee employee1 = new Employee(15,"Michail", "Lomanov", "Male", 33, 1);
-        employeeDao.createEmployee(employee1);
-        System.out.println(employeeDao.getByID(15));
-        List<Employee> list = employeeDao.getAll();
-        for (Employee employee : list) {
-            System.out.println(employee);
-        }
-        Employee employee2 = new Employee( "Loli", "Jojoja", "Female", 20, 2);
-        employeeDao.updateEmployee(employee2);
-        employeeDao.deleteEmployee(employee2);
-//        final String user = "postgres";
-//        final String password = "predator777";
-//        final String url = "jdbc:postgresql://localhost:5432/skypro";
-//
-//        try (final Connection connection = DriverManager.getConnection(url, user, password)){
-//            EmployeeDao employeeDao = new EmployeeDAOImpl(connection);
-////            Employee employee1 = new Employee("Mikel", "Jordan", "Male",51, 2);
-////
-////            employeeDao.createEmployee(employee1);
-////            employeeDao.deleteEmployee(13);
-//            employeeDao.updateEmployee(14, "Win", "Pu", "Female", 512, 1);
-//            List<Employee> list = new ArrayList<>(employeeDao.getAll());
-////////
-//            for (Employee employee : list) {
-//                System.out.println(employee);
-//            }
-//        }
+        CityDAO cityDAO = new CityDAOImpl();
 
-//             PreparedStatement statement = connection.prepareStatement("SELECT * FROM employee left join city on employee.city_id = city.city_id WHERE id = (?) ")) {
-//            statement.setInt(1, 1);
-//            final ResultSet resultSet = statement.executeQuery();
-//
-//            while (resultSet.next()) {
-//                String firstNameOfEmployee = "Имя: "+ resultSet.getString("first_name");
-//                String lastNameOfEmployee = "Фамилия: "+ resultSet.getString("last_name");
-//                String genderOfEmployee = "Пол: "+ resultSet.getString("gender");
-//                int ageOfEmployee = resultSet.getInt("age");
-//                String cityOfEmployee = "Город: "+ resultSet.getString("city_name");
-//
-//
-//                System.out.println(firstNameOfEmployee);
-//                System.out.println(lastNameOfEmployee);
-//                System.out.println(genderOfEmployee);
-//                System.out.println(ageOfEmployee);
-//                System.out.println(cityOfEmployee);
-//            }
+//        Employee employee1 = new Employee("Georgy", "Liskin", "Male", 41, new City(1,"Грозный"));
+//        Employee employee2 = new Employee("Yulya", "Emanova", "Female", 30, new City(2));
+//        employeeDao.createEmployee(employee2);
+//        System.out.println(employeeDao.getByID(16));
+//        List<Employee> list = employeeDao.getAll();
+//        for (Employee employee : list) {
+//            System.out.println(employee);
+//        }
+//        employeeDao.updateEmployee(new Employee(25, "Loli","Jojoja","Female",20, new City(2)));
+//        employeeDao.deleteEmployee(employeeDao.getByID(16));
+
+
+
+//        City city1 = new City("Bashkartostan");
+//        cityDAO.createCity(city1);
+//        cityDAO.updateCity(new City(4, "Башкартостан"));
+//        cityDAO.deleteCity(new City(4, "Башкартостан"));
+        List<City> cityList = cityDAO.getAll();
+        for (City city : cityList) {
+            System.out.println(city);
+        }
 
 
 
